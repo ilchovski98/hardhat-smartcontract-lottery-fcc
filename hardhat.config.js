@@ -1,6 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
-require("@nomicfoundation/hardhat-chai-matchers");
 require("hardhat-deploy");
 require("solidity-coverage");
 require("hardhat-gas-reporter");
@@ -23,6 +22,7 @@ module.exports = {
     goerli: {
       chainId: 5,
       blockConfirmations: 8,
+      saveDeployments: true,
       url: GOERLI_RPC_URL,
       accounts: [PRIVATE_KEY]
     }
@@ -43,5 +43,8 @@ module.exports = {
     player: {
       default: 1,
     }
+  },
+  mocha: {
+    timeout: 300000 // 200 secs max
   }
 };
