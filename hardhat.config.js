@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomicfoundation/hardhat-chai-matchers");
 require("hardhat-deploy");
 require("solidity-coverage");
 require("hardhat-gas-reporter");
@@ -25,6 +26,14 @@ module.exports = {
       url: GOERLI_RPC_URL,
       accounts: [PRIVATE_KEY]
     }
+  },
+  gasReporter: {
+    enabled: false,
+    outputFile: 'gas-report.txt',
+    noColors: true,
+    currency: 'USD',
+    coinmarketcap: COINMARKETCAP_API_KEY,
+    token: 'ETH'
   },
   solidity: "0.8.17",
   namedAccounts: {
